@@ -37,3 +37,16 @@ function ListarUmUsuario($conexao, $id){
     // Extração dos dados de UMA PESSOA como ARRAY ASSOCIATIVO
     return mysqli_fetch_assoc($resultado);
 }
+
+function atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo){
+    $sql = "UPDATE usuarios SET
+    nome = '$nome',
+    email = '$email', 
+    senha = '$senha', 
+    tipo = '$tipo' 
+    WHERE id = $id"; // NÃO ESQUEÇA NUMCA ESSA BAGAÇA!!
+
+    
+    // COPIE E COLE AQUI O MYSQLI_QUERY DA FUNÇÃO inserirUsuario
+    mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+}
