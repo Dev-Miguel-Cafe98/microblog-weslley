@@ -25,6 +25,9 @@ function listaUsuario ( $conexao ){
 }
 
 function ListarUmUsuario($conexao, $id){
+// mysqli_fetch_all seleciona todos os dados
+// mysqli_fetch_assoc seleciona uma pessoa
+
     // Comando SELECT para carregar os dados de UMA PESSOA específica através do ID
     $sql = "SELECT * FROM usuarios WHERE id = $id";
 
