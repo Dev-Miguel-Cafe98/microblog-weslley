@@ -38,8 +38,8 @@ $listaDeUsuarios = listaUsuario($conexao);
 					<tr>
 						
 						<td> <?=$usuario['nome']?>  </td>
-						<td> E-mail. </td>
-						<td> Tipo... </td>
+						<td> <?=$usuario['email']?> </td>
+						<td> <?=$usuario['tipo']?> </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
 							href="usuario-atualiza.php">
