@@ -38,7 +38,7 @@ $listaDeUsuarios = listaUsuario($conexao);
 					<tr>
 						
 						<td> <?=$usuario['nome']?>  </td>
-						<td> E-mail... </td>
+						<td> E-mail. </td>
 						<td> Tipo... </td>
 						<td class="text-center">
 							<a class="btn btn-warning" 
