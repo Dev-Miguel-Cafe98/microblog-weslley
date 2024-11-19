@@ -8,11 +8,45 @@ $id = $_GET['id'];
 // Chamamos a função para carregar os dados da pessoa através do ID
 $dadosUsuario = ListarUmUsuario($conexao, $id);
 
+
+//  Para comentar e verificar as string comando para progamador
+
+// var_dump($dadosUsuario) 
+
+
+// Verificando se o botão do formulário atualizar foi clicado 
+if (isset($_POST['atualizar'])) {
+
+	// Capturando os dados do formulário
+	$nome = $_POST['nome'];
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+	$tipo = $_POST['tipo'];
+
+	/* Se a senha estiver vazia OU for a mesma */
+	if (empty($_POST['senha']) || password_verify(
+		$_POST['senha'],
+		$dadosUsuario['senha']
+	)) {
+		// Manter a mesma senha (copiamos a senha do banco para uma variável)
+		$senha = $dadosUsuario['senha'];
+
+	} else {
+		// Codificar a nova senha digitada no formulário
+		$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+	}
+
+	// chamamos a função para UPDATE no banco
+	atualizarUsuario($conexao, $id, $nome, $email, $senha, $tipo);
+
+	// Redirecionamento
+	header('Location: usuarios.php');
+
+}
+
+
 ?>
 
-<!-- Para comentar e verificar as string comando para progamador
- 
-var_dump($dadosUsuario) -->
 
 
 <div class="row">
@@ -46,15 +80,19 @@ var_dump($dadosUsuario) -->
 					<option
 						value=""></option>
 
-						<option
-                    <?php if( $dadosUsuario['tipo'] == 'editor') { echo "selected";} ?>
-                    value="editor">Editor</option>
-                   
-                   
-                    <option
-                    <?php if( $dadosUsuario['tipo'] == 'admin') { echo "selected";} ?>
-                    value="admin">Administrador</option>
- 
+					<option
+						<?php if ($dadosUsuario['tipo'] == 'editor') {
+							echo "selected";
+						} ?>
+						value="editor">Editor</option>
+
+
+					<option
+						<?php if ($dadosUsuario['tipo'] == 'admin') {
+							echo "selected";
+						} ?>
+						value="admin">Administrador</option>
+
 				</select>
 			</div>
 
