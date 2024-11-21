@@ -1,5 +1,9 @@
 <?php
-require "../includes/funcoes-usuarios.php";
+require "../includes/funcoes-controle-de-acesso.php";
+verificarAcesso();
+
+require "../includes/funcoes-usuarios.php"; 
+
 
 // Capturando o ID passado via URL
 $id = $_GET['id'];

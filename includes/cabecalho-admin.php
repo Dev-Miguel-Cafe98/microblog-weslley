@@ -1,4 +1,7 @@
 <?php
+require "funcoes-controle-de-acesso.php";
+verificarAcesso();
+
 // Guardando o nome da página atual
 $pagina = basename($_SERVER['PHP_SELF']);
 ?>
