@@ -1,5 +1,27 @@
 <?php
-require "includes/cabecalho.php"; 
+require "includes/funcoes-controle-de-acesso.php"; 
+require "includes/funcoes-usuarios.php";
+require "includes/cabecalho.php";
+
+/* Verificando se o botão entrar foi acionado */
+if(isset($_POST['entrar'])){
+	// Validando os campos (se estão vazios)
+	
+	// Validando os campos (se estão vazios)
+	if(empty($_POST['email']) || empty($_POST['senha'])){
+		header("Location:login.php?campos_obrigatorios");
+		die();
+
+	}
+
+	// Capturando e-mail e senha
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+
+	//  1) Buscando no banco de dados o usuário
+	$usuario = buscarUsuario($conexao, $email);
+	
+}
 ?>
 
 <div class="row">
@@ -9,7 +31,7 @@ require "includes/cabecalho.php";
         <form action="" method="post" id="form-login" name="form-login" class="mx-auto w-50" autocomplete="off">
 
 				<p class="my-2 alert alert-warning text-center">
-					Mensagens de feedback...
+					Conecta sua conta...
 				</p>                
 
 				<div class="mb-3">
