@@ -1,6 +1,7 @@
 <?php
 require "../includes/funcoes-controle-de-acesso.php";
 verificarAcesso();
+verificaNivel();
 
 require "../includes/funcoes-usuarios.php"; 
 

@@ -1,6 +1,7 @@
 <?php 
 require "../includes/cabecalho-admin.php";
 require "../includes/funcoes-usuarios.php";
+verificaNivel();
 
 if(isset($_POST['inserir'])){
 
