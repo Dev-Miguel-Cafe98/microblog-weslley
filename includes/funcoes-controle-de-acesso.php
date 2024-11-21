@@ -26,7 +26,7 @@ function verificarAcesso()
         session_destroy();
 
         /* Fazemos o usuário ir para página de login.php */
-        header("Location:../login.php?acesso_negado");
+        header("location:../login.php?acesso_negado");
 
         /* E paramos completamente a execução do script */
         die();
@@ -43,6 +43,6 @@ function login($id, $nome, $tipo){
 /* Função que será usada quando clicar no link Sair */
 function logout(){
     session_destroy();
-    header("Location:../login.php?saiu");
+    header("location:../login.php?saiu");
     die();
 }

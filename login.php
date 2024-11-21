@@ -21,10 +21,19 @@ if(isset($_POST['entrar'])){
 	//  1) Buscando no banco de dados o usuário
 	$usuario = buscarUsuario($conexao, $email);
 	
-	echo "<pre>";
-	var_dump($usuario);
-	echo "</pre>";
+	// 2) Tendo um usuário válido, vamos verificar a senha digitada comparando com a senha cadastrada no banco de dados
+	if($usuario !== null && password_verify($senha, $usuario['senha'])){ 
+		// Inicando o processo de login
+		login($usuario['id'],	$usuario['nome'] ,$usuario['tipo']);
 
+		// Redirecionando para admin/index.php
+		header("location:admin/index.php");
+		die();
+	}else{
+		// Senão, algo está errado (email e/ou a senha)e não pode entrar
+		header("location:login.php?dados_incorretos");
+		die();
+	}
 
 }
 ?>
