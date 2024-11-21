@@ -21,6 +21,11 @@ if(isset($_POST['entrar'])){
 	//  1) Buscando no banco de dados o usuário
 	$usuario = buscarUsuario($conexao, $email);
 	
+	echo "<pre>";
+	var_dump($usuario);
+	echo "</pre>";
+
+
 }
 ?>
 
