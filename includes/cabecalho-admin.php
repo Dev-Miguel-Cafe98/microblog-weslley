@@ -2,6 +2,13 @@
 require "funcoes-controle-de-acesso.php";
 verificarAcesso();
 
+
+/* Se existir o parâmentro sair */
+if(isset($_GET['sair'])){
+    logout();
+}
+
+
 // Guardando o nome da página atual
 $pagina = basename($_SERVER['PHP_SELF']);
 ?>
@@ -52,7 +59,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
                 <a class="nav-link" href="../index.php" target="_blank">Área pública</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fw-bold" href=""> <i class="bi bi-x-circle"></i> Sair</a>
+                <a class="nav-link fw-bold" href="?sair"> <i class="bi bi-x-circle"></i> Sair</a>
             </li>
         </ul>
 
