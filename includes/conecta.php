@@ -1,4 +1,5 @@
 <?php
+// parametros de acesso ao servidor (sistema, usuário, senha, banco de dados)
 $servidor = "localhost";
 $usuario = "root";
 $senha = "";

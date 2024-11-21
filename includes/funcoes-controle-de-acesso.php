@@ -32,3 +32,17 @@ function verificarAcesso()
         die();
     }
 }
+/* Função que será usada pelo formulário de login.php */
+function login($id, $nome, $tipo){
+    // Criando a variável de sessão
+    $_SESSION['id'] = $id;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['tipo'] = $tipo;
+}
+
+/* Função que será usada quando clicar no link Sair */
+function logout(){
+    session_destroy();
+    header("Location:../login.php?saiu");
+    die();
+}
